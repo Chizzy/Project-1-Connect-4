@@ -1,13 +1,17 @@
-var column = $('.column')
-var player = $('.column .row').hasClass('pink')
+let column = $('.column')
+let player ='pink'
+let space = $('#space')
+let counter = 0
 
 // Switch between players
-var changePlayer = () => {
-    if (player == 'pink') {
-        player = 'black'
+$('.column .row').click(function (e) {
+    $(this).css('background-color', 'pink')
+    counter++
+    if (counter % 2 === 0 ) {
+        $(this).css('background-color', 'pink')
     }
     else {
-        player = 'pink'
+        $(this).css('background-color', 'black')
     }
-}
+})
 
