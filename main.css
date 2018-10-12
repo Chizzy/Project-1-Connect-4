@@ -38,9 +38,9 @@ h1 {
    flex: 1;
 }
 
-.pink div {
+.pink {
  background-color: pink;
 }
-.black div {
+.black {
  background-color: black;
 }
