@@ -1,6 +1,3 @@
-let column = $('.column')
-let player ='pink'
-let space = $('#space')
 let counter = 0
 
 // Switch between players and stack upward
@@ -13,4 +10,19 @@ $('.column').click(function() {
     }
 });
 
+// Check for winning combinations vertically
 
+const winVert = () => {
+    for (let i = 0; i < 7; i++) {
+        if ($('.column').children('.pink') || $('.column').children('.black') {
+            counter++
+            if (counter >= 4) {
+                return true
+                alert ('You won!')
+            }
+        } else {
+            counter = 0
+        }
+    }
+    return false
+}
