@@ -1,11 +1,17 @@
 body {
     background: silver;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 6rem;
     text-align: center;
     font-family: 'Chewy', cursive;
+    color: pink;
+    text-shadow: rgb(0,0,0) 15px 15px 5px;
 }
 
 .game {
@@ -45,4 +51,18 @@ h1 {
 }
 .black {
  background-color: black;
+}
+
+button {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 30px 90px;
+    outline: none;
+    background-color: black;
+    color: pink;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 9px grey;
+    font-family: 'Chewy', cursive;
+    font-size: 2rem;
 }
