@@ -30,6 +30,7 @@ h1 {
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
+    text-align: center;
 }
 .column {
     flex-direction: column;
@@ -40,6 +41,7 @@ h1 {
 
 .pink {
  background-color: pink;
+ color: pink;
 }
 .black {
  background-color: black;
