@@ -6,7 +6,7 @@
 ## Technologies Used
 
 * Languages - HTML5, CSS3, Javascript, jQuery
-* Project Planning - Trello
+* Project Planning - [Trello](https://trello.com/b/SLmH7AoT/wdi-project-1-connect-4#)
 * Wireframing - Sketch
 * Visual Studio Code
 
