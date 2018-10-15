@@ -19,6 +19,24 @@ column.mouseout(function () {
     $(this).css('background', 'silver')
 })
 
+// Ask for players' name
+    swal ({
+        title: "Player 1's Name",
+        content: 'input',
+        input: 'text',
+        closeOnClickOutside: false,
+        closeModal: false,
+      })
+      .then((value) => {
+        swal ({
+            title: "Player 2's Name",
+            content: 'input',
+            input: 'text',
+            closeOnClickOutside: false,
+            closeModal: false,
+          })
+      })
+      
 // Check for same color (class)
 const sameColor = (one, two, three, four) => {
     return (one === two && one === three && one === four && one !== undefined)
@@ -56,6 +74,7 @@ const winHoriz = () => {
         }
     }
 }
+
 
 
 // Runs all functions to constantly check for winning combinations
