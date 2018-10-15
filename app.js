@@ -32,9 +32,9 @@ const classColor = (col, row) => {
 // Check for winning combinations vertically
 const winVert = () => {
     for (let col = 0; col < 7; col++) {
-        for (let row = 0; row < 6; row++) {
+        for (let row = 0; row < 3; row++) {
             if (sameColor(classColor(col, row), classColor(col + 1, row), classColor(col + 2, row), classColor(col + 3, row))) {
-                // console.log('vertical')
+                console.log('vertical')
                 return true
             } else {
                 continue
@@ -43,7 +43,23 @@ const winVert = () => {
     }
 }
 
+// Check for winning combinations horizontally
+const winHoriz = () => {
+    for (let row = 0; row < 6; row++) {
+        for (let col = 0; col < 4; col++) {
+            if (sameColor(classColor(col, row), classColor(col, row + 1), classColor(col, row + 2), classColor(col, row + 3))) {
+                console.log('horizontal')
+                return true
+            } else {
+                continue
+            }
+        }
+    }
+}
+
+
 // Runs all functions to constantly check for winning combinations
 $('.game').click(function () {
     winVert()
+    winHoriz()
 })
