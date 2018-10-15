@@ -5,9 +5,9 @@ let column = $('.column')
 column.click(function () {
     counter++
     if (counter % 2 === 0) {
-        $(this).children().not('.pink, .black').last().addClass('pink').html('0')
+        $(this).children().not('.pink, .black').last().addClass('pink')
     } else {
-        $(this).children().not('.pink, .black').last().addClass('black').html('1')
+        $(this).children().not('.pink, .black').last().addClass('black')
     }
 });
 
@@ -58,8 +58,20 @@ const winHoriz = () => {
 }
 
 
+
 // Runs all functions to constantly check for winning combinations
 $('.game').click(function () {
     winVert()
     winHoriz()
+    
+})
+
+// Clear board
+$('#clear').click (function () {
+    $('.column .row').removeClass('pink black')
+})
+
+// Restart entire game
+$('#restart').click (function () {
+    location.reload()
 })

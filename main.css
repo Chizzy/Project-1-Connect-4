@@ -47,7 +47,6 @@ h1 {
 
 .pink {
  background-color: pink;
- color: pink;
 }
 .black {
  background-color: black;
@@ -65,4 +64,15 @@ button {
     box-shadow: 0 9px grey;
     font-family: 'Chewy', cursive;
     font-size: 2rem;
+}
+
+#buttons {
+    display: flex;
+}
+
+#restart {
+    margin-right: 5rem;
+}
+#clear {
+    margin-left: 5rem;
 }
