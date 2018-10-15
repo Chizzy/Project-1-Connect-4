@@ -67,6 +67,7 @@ const winHoriz = () => {
         for (let row = 0; row < 6; row++) {
             if (sameColor(classColor(col, row), classColor(col + 1, row), classColor(col + 2, row), classColor(col + 3, row))) {
                 console.log('horizontal')
+                swal ("You win!")
                 return true
             } else {
                 continue
@@ -81,6 +82,7 @@ const winVert = () => {
         for (let col = 0; col < 7; col++) {
             if (sameColor(classColor(col, row), classColor(col, row + 1), classColor(col, row + 2), classColor(col, row + 3))) {
                 console.log('vertical')
+                swal ("You win!")
                 return true
             } else {
                 continue
@@ -95,9 +97,11 @@ const winDiag = () => {
         for (let row = 0; row < 6; row++) {
             if (sameColor(classColor(col, row), classColor(col + 1, row + 1), classColor(col + 2, row + 2), classColor(col + 3, row + 3))) {
                 console.log('diagonal')
+                swal ("You win!")
                 return true
             } else if (sameColor(classColor(col, row), classColor(col - 1, row + 1), classColor(col - 2, row + 2), classColor(col - 3, row + 3))) {
                 console.log('diagonal')
+                swal ("You win!")
                 return true
             } else {
                 continue

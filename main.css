@@ -121,6 +121,11 @@ button {
 .swal-title {
     color: white;
 }
+.swal-text {
+    color: white;
+    font-size: 6rem;
+    text-shadow: rgb(255,255,0) 5px 5px 5px;
+}
 .swal-button {
     background-color: gray;
 }
