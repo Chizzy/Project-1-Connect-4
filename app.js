@@ -58,7 +58,6 @@ const winHoriz = () => {
 }
 
 
-
 // Runs all functions to constantly check for winning combinations
 $('.game').click(function () {
     winVert()

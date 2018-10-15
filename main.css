@@ -4,6 +4,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    font-family: 'Chewy', cursive;
 }
 
 h1 {
@@ -12,6 +13,31 @@ h1 {
     font-family: 'Chewy', cursive;
     color: pink;
     text-shadow: rgb(0,0,0) 15px 15px 5px;
+}
+
+.scoreBoard {
+    text-align: center;
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    border: black 5px solid;
+    border-radius: 20px;
+    padding: 50px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+.player1 {
+    margin-right: 3rem;
+}
+.player2 {
+    margin-left: 3rem;
+}
+.score {
+    color: red;
 }
 
 .game {
@@ -60,10 +86,14 @@ button {
     background-color: black;
     color: pink;
     border: none;
-    border-radius: 5px;
-    box-shadow: 0 9px grey;
+    border-radius: 20px;
     font-family: 'Chewy', cursive;
     font-size: 2rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
 }
 
 #buttons {
