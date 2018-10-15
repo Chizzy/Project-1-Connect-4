@@ -1,6 +1,7 @@
 let counter = 0
 let column = $('.column')
-
+let player1 = "<div class= 'black'></div>"
+let player2 = "<div class= 'pink'></div>"
 
 // Switch between players and stack upward
 column.click(function () {
@@ -51,6 +52,7 @@ const sameColor = (one, two, three, four) => {
     two === true
     three === true
     four === true
+    
     return (one && two && three && four && one !== undefined)
 }
 
@@ -106,11 +108,13 @@ const winDiag = () => {
 
 // When someone wins
 if (winVert() || winHoriz() || winDiag()) {
-    let score =  parseInt($('.score1').html())
-    score++
-    score.toString
-    $('.score1').html(score)
-
+    counter++
+    if (counter % 2 === 0) {
+        let score = parseInt($('.score1').html())
+        score++
+        score.toString
+        $('.score1').html(score)
+    }
 }
 
 // Runs all functions to constantly check for winning combinations
