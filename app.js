@@ -1,9 +1,8 @@
 let counter = 0
 let column = $('.column')
-let row = $('.row')
 
 // Switch between players and stack upward
-column.click(function() {
+column.click(function () {
     counter++
     if (counter % 2 === 0) {
         $(this).children().not('.pink, .black').last().addClass('pink').html('0')
@@ -13,37 +12,38 @@ column.click(function() {
 });
 
 // Highlights what column a player is on
-column.mouseover(function() {
+column.mouseover(function () {
     $(this).css('background', 'gray')
 })
-column.mouseout(function() {
+column.mouseout(function () {
     $(this).css('background', 'silver')
 })
 
-// Check for winning combinations vertically
-let array = []
-
-const winVert = () => {
-    for (let i = 0; i <= $('.column .row').length; i++) {
-        // $('.column .row').eq(i).text()
-        // console.log($('.column .row').eq(0))
-        array.push(parseInt($('.column .row').eq(i).text().pop()))
-    }
-    
+// Check for same color (class)
+const sameColor = (one, two, three, four) => {
+    return (one === two && one === three && one === four && one !== undefined)
 }
-console.log(array)
 
-// const winVert = () => {
-//     for (let i = 0; i < 7; i++) {
-//         if ($('.column').children('.pink') || $('.column').children('.black') {
-//             counter++
-//             if (counter >= 4) {
-//                 return true
-//                 alert ('You won!')
-//             }
-//         } else {
-//             counter = 0
-//         }
-//     }
-//     return false
-// }
+// Find the class (pink or black)
+const classColor = (col, row) => {
+    return (column.eq(col).find('.row').eq(row).hasClass('pink') || column.eq(col).find('.row').eq(row).hasClass('black'))
+}
+
+// Check for winning combinations vertically
+const winVert = () => {
+    for (let col = 0; col < 7; col++) {
+        for (let row = 0; row < 6; row++) {
+            if (sameColor(classColor(col, row), classColor(col + 1, row), classColor(col + 2, row), classColor(col + 3, row))) {
+                // console.log('vertical')
+                return true
+            } else {
+                continue
+            }
+        }
+    }
+}
+
+// Runs all functions to constantly check for winning combinations
+$('.game').click(function () {
+    winVert()
+})
