@@ -1,4 +1,5 @@
 # Connect 4 Project
+
 ## Overview
 
 ##### Live Site: https://chizzyeze.github.io/Project-1-Connect-4/
@@ -22,3 +23,7 @@
 ![Wireframe](https://github.com/ChizzyEze/Project-1-Connect-4/blob/master/wireframes/connect-4-wireframe.png)
 
 ## Future Development
+
+* Fix score board, so each winner can get a point added to their score
+* Alert/modal that displays who is the winner
+* AI mode (player vs computer)
