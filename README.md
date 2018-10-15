@@ -19,6 +19,6 @@
 * Add the players' name
 
 ## Wireframe
-
+![alt text][connect-4-wireframe]
 
 ## Future Development
