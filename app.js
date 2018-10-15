@@ -46,7 +46,11 @@ column.mouseout(function () {
    
 // Check for same color (class)
 const sameColor = (one, two, three, four) => {
-    return (one === two && one === three && one === four && one !== undefined)
+    one === true
+    two === true
+    three === true
+    four === true
+    return (one && two && three && four && one !== undefined)
 }
 
 // Find the class (pink or black)
@@ -54,12 +58,12 @@ const classColor = (col, row) => {
     return (column.eq(col).find('.row').eq(row).hasClass('pink') || column.eq(col).find('.row').eq(row).hasClass('black'))
 }
 
-// Check for winning combinations vertically
-const winVert = () => {
+// Check for winning combinations horizontally
+const winHoriz = () => {
     for (let col = 0; col < 7; col++) {
-        for (let row = 0; row < 3; row++) {
+        for (let row = 0; row < 6; row++) {
             if (sameColor(classColor(col, row), classColor(col + 1, row), classColor(col + 2, row), classColor(col + 3, row))) {
-                console.log('vertical')
+                console.log('horizontal')
                 return true
             } else {
                 continue
@@ -68,12 +72,12 @@ const winVert = () => {
     }
 }
 
-// Check for winning combinations horizontally
-const winHoriz = () => {
+// Check for winning combinations vertically
+const winVert = () => {
     for (let row = 0; row < 6; row++) {
-        for (let col = 0; col < 4; col++) {
+        for (let col = 0; col < 7; col++) {
             if (sameColor(classColor(col, row), classColor(col, row + 1), classColor(col, row + 2), classColor(col, row + 3))) {
-                console.log('horizontal')
+                console.log('vertical')
                 return true
             } else {
                 continue
@@ -84,8 +88,8 @@ const winHoriz = () => {
 
 // Check for winning combinations diagonally
 const winDiag = () => {
-    for (let col = 0; col < 5; col++) {
-        for (let row = 0; row < 7; row++) {
+    for (let col = 0; col < 4; col++) {
+        for (let row = 0; row < 3; row++) {
             if (sameColor(classColor(col, row), classColor(col + 1, row + 1), classColor(col + 2, row + 2), classColor(col + 3, row + 3))) {
                 console.log('diagonal')
                 return true
