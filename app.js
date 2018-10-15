@@ -1,6 +1,7 @@
 let counter = 0
 let column = $('.column')
 
+
 // Switch between players and stack upward
 column.click(function () {
     counter++
@@ -55,7 +56,7 @@ const sameColor = (one, two, three, four) => {
 
 // Find the class (pink or black)
 const classColor = (col, row) => {
-    return (column.eq(col).find('.row').eq(row).hasClass('pink') || column.eq(col).find('.row').eq(row).hasClass('black'))
+    return ((column.eq(col).find('.row').eq(row).hasClass('pink')) , (column.eq(col).find('.row').eq(row).hasClass('black')))
 }
 
 // Check for winning combinations horizontally
@@ -88,8 +89,8 @@ const winVert = () => {
 
 // Check for winning combinations diagonally
 const winDiag = () => {
-    for (let col = 0; col < 4; col++) {
-        for (let row = 0; row < 3; row++) {
+    for (let col = 0; col < 7; col++) {
+        for (let row = 0; row < 6; row++) {
             if (sameColor(classColor(col, row), classColor(col + 1, row + 1), classColor(col + 2, row + 2), classColor(col + 3, row + 3))) {
                 console.log('diagonal')
                 return true
@@ -101,6 +102,15 @@ const winDiag = () => {
             }
         }
     }
+}
+
+// When someone wins
+if (winVert() || winHoriz() || winDiag()) {
+    let score =  parseInt($('.score1').html())
+    score++
+    score.toString
+    $('.score1').html(score)
+
 }
 
 // Runs all functions to constantly check for winning combinations
