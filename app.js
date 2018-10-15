@@ -83,13 +83,27 @@ const winHoriz = () => {
 }
 
 // Check for winning combinations diagonally
-
+const winDiag = () => {
+    for (let col = 0; col < 5; col++) {
+        for (let row = 0; row < 7; row++) {
+            if (sameColor(classColor(col, row), classColor(col + 1, row + 1), classColor(col + 2, row + 2), classColor(col + 3, row + 3))) {
+                console.log('diagonal')
+                return true
+            } else if (sameColor(classColor(col, row), classColor(col - 1, row + 1), classColor(col - 2, row + 2), classColor(col - 3, row + 3))) {
+                console.log('diagonal')
+                return true
+            } else {
+                continue
+            }
+        }
+    }
+}
 
 // Runs all functions to constantly check for winning combinations
 $('.game').click(function () {
     winVert()
     winHoriz()
-    
+    winDiag()
 })
 
 // Clear board
