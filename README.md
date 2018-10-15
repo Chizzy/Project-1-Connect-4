@@ -19,6 +19,6 @@
 * Add the players' name
 
 ## Wireframe
-![alt text][connect-4-wireframe]
+![Wireframe][https://github.com/ChizzyEze/Project-1-Connect-4/blob/master/wireframes/connect-4-wireframe.png]
 
 ## Future Development
