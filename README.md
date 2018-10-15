@@ -10,9 +10,13 @@
 * Wireframing - Sketch
 * Visual Studio Code
 
-
 ## Features
 
+* SweetAlert
+* Score Board
+* New Game button
+* Clear board button
+* Add the players' name
 
 ## Wireframe
 
