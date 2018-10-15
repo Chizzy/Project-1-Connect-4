@@ -1,6 +1,9 @@
 # Connect 4 Project
 
 ## Overview
+For project #1, I created a game of Connect 4.
+
+Once players come to the site, they are asked to input their names. The first player starts by placing a black circle in a column. They then alternate placing black circles and pink circles on the game board until either player has four in a row or all nine squares are filled. Once a player wins, their score increases. When there is a tie, no gets a point. The game allows players to play multiple games and clears the board.
 
 ##### Live Site: https://chizzyeze.github.io/Project-1-Connect-4/
 
