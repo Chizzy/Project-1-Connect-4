@@ -1,7 +1,7 @@
 let counter = 0
 let column = $('.column')
-let player1Count = 0
-let player2Count = 0
+let player1 = ($('.player1 .name')).eq(0).text()
+let player2 = ($('.player2 .name')).eq(0).text()
 
 // Switch between players and stack upward
 column.click(function () {
@@ -30,7 +30,7 @@ column.mouseout(function () {
         closeModal: false,
       })
       .then((value) => {
-          $('.player1').html(`${value} ⬤ <div class="score score1">0</div>`)
+          $('.player1 .name').html(`${value} ⬤`)
       })
 
         .then((value) => {
@@ -42,7 +42,7 @@ column.mouseout(function () {
                 closeModal: false,
               })
           .then((value) => {
-            $('.player2').html(`${value} <span>⬤</span> <div class="score score1">0</div>`)
+            $('.player2 .name').html(`${value} <span>⬤</span>`)
           })
         }) 
    
@@ -69,7 +69,7 @@ const winHoriz = () => {
         for (let row = 0; row < 6; row++) {
             if (sameColor(findPink(col, row), findPink(col + 1, row), findPink(col + 2, row), findPink(col + 3, row))) {
                 console.log('horizontal')
-                swal ("You win!")
+                swal (($('.player2 .name')).eq(0).text().replace('⬤', '') + " wins!")
                 return true
             } else {
                 continue
@@ -81,7 +81,7 @@ const winHoriz = () => {
         for (let row = 0; row < 6; row++) {
             if (sameColor(findBlack(col, row), findBlack(col + 1, row), findBlack(col + 2, row), findBlack(col + 3, row))) {
                 console.log('horizontal')
-                swal ("You win!")
+                swal (($('.player1 .name')).eq(0).text().replace('⬤', '') + " wins!")
                 return true
             } else {
                 continue
@@ -96,7 +96,7 @@ const winVert = () => {
         for (let col = 0; col < 7; col++) {
             if (sameColor(findPink(col, row), findPink(col, row + 1), findPink(col, row + 2), findPink(col, row + 3))) {
                 console.log('vertical')
-                swal ("You win!")
+                swal (($('.player2 .name')).eq(0).text().replace('⬤', '') + " wins!")
                 return true
             } else {
                 continue
@@ -108,7 +108,7 @@ const winVert = () => {
         for (let col = 0; col < 7; col++) {
             if (sameColor(findBlack(col, row), findBlack(col, row + 1), findBlack(col, row + 2), findBlack(col, row + 3))) {
                 console.log('vertical')
-                swal ("You win!")
+                swal (($('.player1 .name')).eq(0).text().replace('⬤', '') + " wins!")
                 return true
             } else {
                 continue
@@ -123,11 +123,11 @@ const winDiag = () => {
         for (let row = 0; row < 6; row++) {
             if (sameColor(findPink(col, row), findPink(col + 1, row + 1), findPink(col + 2, row + 2), findPink(col + 3, row + 3))) {
                 console.log('diagonal')
-                swal ("You win!")
+                swal (($('.player2 .name')).eq(0).text().replace('⬤', '') + " wins!")
                 return true
             } else if (sameColor(findPink(col, row), findPink(col - 1, row + 1), findPink(col - 2, row + 2), findPink(col - 3, row + 3))) {
                 console.log('diagonal')
-                swal ("You win!")
+                swal (($('.player2 .name')).eq(0).text().replace('⬤', '') + " wins!")
                 return true
             } else {
                 continue
@@ -139,11 +139,11 @@ const winDiag = () => {
         for (let row = 0; row < 6; row++) {
             if (sameColor(findBlack(col, row), findBlack(col + 1, row + 1), findBlack(col + 2, row + 2), findBlack(col + 3, row + 3))) {
                 console.log('diagonal')
-                swal ("You win!")
+                swal (($('.player1 .name')).eq(0).text().replace('⬤', '') + " wins!")
                 return true
             } else if (sameColor(findBlack(col, row), findBlack(col - 1, row + 1), findBlack(col - 2, row + 2), findBlack(col - 3, row + 3))) {
                 console.log('diagonal')
-                swal ("You win!")
+                swal (($('.player1 .name')).eq(0).text().replace('⬤', '') + " wins!")
                 return true
             } else {
                 continue

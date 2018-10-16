@@ -120,11 +120,13 @@ button {
 }
 .swal-title {
     color: white;
+    text-align: center;
 }
 .swal-text {
     color: white;
     font-size: 6rem;
     text-shadow: rgb(255,255,0) 5px 5px 5px;
+    text-align: center;
 }
 .swal-button {
     background-color: gray;
