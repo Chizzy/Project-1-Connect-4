@@ -1,7 +1,7 @@
 let counter = 0
 let column = $('.column')
-let player1 = "<div class= 'black'></div>"
-let player2 = "<div class= 'pink'></div>"
+let player1Count = 0
+let player2Count = 0
 
 // Switch between players and stack upward
 column.click(function () {
@@ -52,20 +52,34 @@ const sameColor = (one, two, three, four) => {
     two === true
     three === true
     four === true
-    
     return (one && two && three && four && one !== undefined)
 }
 
 // Find the class (pink or black)
-const classColor = (col, row) => {
-    return ((column.eq(col).find('.row').eq(row).hasClass('pink')) , (column.eq(col).find('.row').eq(row).hasClass('black')))
+const findPink = (col, row) => {
+    return (column.eq(col).find('.row').eq(row).hasClass('pink'))
+}
+const findBlack = (col, row) => {
+    return (column.eq(col).find('.row').eq(row).hasClass('black'))
 }
 
 // Check for winning combinations horizontally
 const winHoriz = () => {
     for (let col = 0; col < 7; col++) {
         for (let row = 0; row < 6; row++) {
-            if (sameColor(classColor(col, row), classColor(col + 1, row), classColor(col + 2, row), classColor(col + 3, row))) {
+            if (sameColor(findPink(col, row), findPink(col + 1, row), findPink(col + 2, row), findPink(col + 3, row))) {
+                console.log('horizontal')
+                swal ("You win!")
+                return true
+            } else {
+                continue
+            }
+        }
+    }
+
+    for (let col = 0; col < 7; col++) {
+        for (let row = 0; row < 6; row++) {
+            if (sameColor(findBlack(col, row), findBlack(col + 1, row), findBlack(col + 2, row), findBlack(col + 3, row))) {
                 console.log('horizontal')
                 swal ("You win!")
                 return true
@@ -80,7 +94,19 @@ const winHoriz = () => {
 const winVert = () => {
     for (let row = 0; row < 6; row++) {
         for (let col = 0; col < 7; col++) {
-            if (sameColor(classColor(col, row), classColor(col, row + 1), classColor(col, row + 2), classColor(col, row + 3))) {
+            if (sameColor(findPink(col, row), findPink(col, row + 1), findPink(col, row + 2), findPink(col, row + 3))) {
+                console.log('vertical')
+                swal ("You win!")
+                return true
+            } else {
+                continue
+            }
+        }
+    }
+
+    for (let row = 0; row < 6; row++) {
+        for (let col = 0; col < 7; col++) {
+            if (sameColor(findBlack(col, row), findBlack(col, row + 1), findBlack(col, row + 2), findBlack(col, row + 3))) {
                 console.log('vertical')
                 swal ("You win!")
                 return true
@@ -95,11 +121,27 @@ const winVert = () => {
 const winDiag = () => {
     for (let col = 0; col < 7; col++) {
         for (let row = 0; row < 6; row++) {
-            if (sameColor(classColor(col, row), classColor(col + 1, row + 1), classColor(col + 2, row + 2), classColor(col + 3, row + 3))) {
+            if (sameColor(findPink(col, row), findPink(col + 1, row + 1), findPink(col + 2, row + 2), findPink(col + 3, row + 3))) {
                 console.log('diagonal')
                 swal ("You win!")
                 return true
-            } else if (sameColor(classColor(col, row), classColor(col - 1, row + 1), classColor(col - 2, row + 2), classColor(col - 3, row + 3))) {
+            } else if (sameColor(findPink(col, row), findPink(col - 1, row + 1), findPink(col - 2, row + 2), findPink(col - 3, row + 3))) {
+                console.log('diagonal')
+                swal ("You win!")
+                return true
+            } else {
+                continue
+            }
+        }
+    }
+
+    for (let col = 0; col < 7; col++) {
+        for (let row = 0; row < 6; row++) {
+            if (sameColor(findBlack(col, row), findBlack(col + 1, row + 1), findBlack(col + 2, row + 2), findBlack(col + 3, row + 3))) {
+                console.log('diagonal')
+                swal ("You win!")
+                return true
+            } else if (sameColor(findBlack(col, row), findBlack(col - 1, row + 1), findBlack(col - 2, row + 2), findBlack(col - 3, row + 3))) {
                 console.log('diagonal')
                 swal ("You win!")
                 return true
@@ -110,16 +152,20 @@ const winDiag = () => {
     }
 }
 
+
+
 // When someone wins
-if (winVert() || winHoriz() || winDiag()) {
-    counter++
-    if (counter % 2 === 0) {
-        let score = parseInt($('.score1').html())
-        score++
-        score.toString
-        $('.score1').html(score)
-    }
-}
+
+
+// if (winVert() || winHoriz() || winDiag()) {
+//     counter++
+//     if (counter % 2 === 0) {
+//         let score = parseInt($('.score1').html())
+//         score++
+//         score.toString
+//         $('.score1').html(score)
+//     }
+// }
 
 // Runs all functions to constantly check for winning combinations
 $('.game').click(function () {
