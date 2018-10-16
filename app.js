@@ -2,6 +2,8 @@ let counter = 0
 let column = $('.column')
 let player1 = ($('.player1 .name')).eq(0).text()
 let player2 = ($('.player2 .name')).eq(0).text()
+let player1Score = 0
+let player2Score = 0
 
 // Switch between players and stack upward
 column.click(function () {
@@ -70,6 +72,9 @@ const winHoriz = () => {
             if (sameColor(findPink(col, row), findPink(col + 1, row), findPink(col + 2, row), findPink(col + 3, row))) {
                 console.log('horizontal')
                 swal (($('.player2 .name')).eq(0).text().replace('⬤', '') + " wins!")
+                // Adds point to winner
+                player2Score++
+                $('.player2 .score').html(player2Score)
                 return true
             } else {
                 continue
@@ -82,6 +87,9 @@ const winHoriz = () => {
             if (sameColor(findBlack(col, row), findBlack(col + 1, row), findBlack(col + 2, row), findBlack(col + 3, row))) {
                 console.log('horizontal')
                 swal (($('.player1 .name')).eq(0).text().replace('⬤', '') + " wins!")
+                // Adds point to winner
+                player1Score++
+                $('.player1 .score').html(player1Score)
                 return true
             } else {
                 continue
@@ -97,6 +105,9 @@ const winVert = () => {
             if (sameColor(findPink(col, row), findPink(col, row + 1), findPink(col, row + 2), findPink(col, row + 3))) {
                 console.log('vertical')
                 swal (($('.player2 .name')).eq(0).text().replace('⬤', '') + " wins!")
+                // Adds point to winner
+                player2Score++
+                $('.player2 .score').html(player2Score)
                 return true
             } else {
                 continue
@@ -109,6 +120,9 @@ const winVert = () => {
             if (sameColor(findBlack(col, row), findBlack(col, row + 1), findBlack(col, row + 2), findBlack(col, row + 3))) {
                 console.log('vertical')
                 swal (($('.player1 .name')).eq(0).text().replace('⬤', '') + " wins!")
+                // Adds point to winner
+                player1Score++
+                $('.player1 .score').html(player1Score)
                 return true
             } else {
                 continue
@@ -124,10 +138,16 @@ const winDiag = () => {
             if (sameColor(findPink(col, row), findPink(col + 1, row + 1), findPink(col + 2, row + 2), findPink(col + 3, row + 3))) {
                 console.log('diagonal')
                 swal (($('.player2 .name')).eq(0).text().replace('⬤', '') + " wins!")
+                // Adds point to winner
+                player2Score++
+                $('.player2 .score').html(player2Score)
                 return true
             } else if (sameColor(findPink(col, row), findPink(col - 1, row + 1), findPink(col - 2, row + 2), findPink(col - 3, row + 3))) {
                 console.log('diagonal')
                 swal (($('.player2 .name')).eq(0).text().replace('⬤', '') + " wins!")
+                // Adds point to winner
+                player2Score++
+                $('.player2 .score').html(player2Score)
                 return true
             } else {
                 continue
@@ -140,10 +160,16 @@ const winDiag = () => {
             if (sameColor(findBlack(col, row), findBlack(col + 1, row + 1), findBlack(col + 2, row + 2), findBlack(col + 3, row + 3))) {
                 console.log('diagonal')
                 swal (($('.player1 .name')).eq(0).text().replace('⬤', '') + " wins!")
+                // Adds point to winner
+                player1Score++
+                $('.player1 .score').html(player1Score)
                 return true
             } else if (sameColor(findBlack(col, row), findBlack(col - 1, row + 1), findBlack(col - 2, row + 2), findBlack(col - 3, row + 3))) {
                 console.log('diagonal')
                 swal (($('.player1 .name')).eq(0).text().replace('⬤', '') + " wins!")
+                // Adds point to winner
+                player1Score++
+                $('.player1 .score').html(player1Score)
                 return true
             } else {
                 continue
@@ -151,21 +177,6 @@ const winDiag = () => {
         }
     }
 }
-
-
-
-// When someone wins
-
-
-// if (winVert() || winHoriz() || winDiag()) {
-//     counter++
-//     if (counter % 2 === 0) {
-//         let score = parseInt($('.score1').html())
-//         score++
-//         score.toString
-//         $('.score1').html(score)
-//     }
-// }
 
 // Runs all functions to constantly check for winning combinations
 $('.game').click(function () {
