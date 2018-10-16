@@ -27,6 +27,7 @@ Once players come to the site, they are asked to input their names. The first pl
 
 ## Future Development
 
-* Fix score board, so each winner can get a point added to their score
-* Alert/modal that displays who is the winner
+* Add sound effects
+* Add 3D features to board/pieces
+* Animations (pieces falling in place)
 * AI mode (player vs computer)
